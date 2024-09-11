@@ -11,7 +11,7 @@ RUN apt-get clean && apt-get update && apt-get -y upgrade && \
 RUN useradd -m user && echo "user:password" | chpasswd
 COPY --chown=user:user ./examples /home/user/examples
 RUN chmod -R +x  /home/user/examples/lua
-RUN curl -LJO https://github.com/zeta-chain/node/releases/download/v19.1.4/zetacored-linux-amd64 -o /usr/local/bin/zetacored && chmod a+x /usr/local/bin/zetacored
+RUN curl -L https://github.com/zeta-chain/node/releases/download/v19.1.4/zetacored-linux-amd64 -o /usr/local/bin/zetacored && chmod a+x /usr/local/bin/zetacored
 # We set WORKDIR, as this gets extracted by Webvm to be used as the cwd. This is optional.
 WORKDIR /home/user/
 # We set env, as this gets extracted by Webvm. This is optional.
